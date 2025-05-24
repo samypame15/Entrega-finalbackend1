@@ -1,0 +1,200 @@
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #e6a0a0; 
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+  padding: 20px 0 60px; 
+}
+
+h1, h2 {
+  color: #444;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+
+.products-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+  justify-items: center;
+  padding: 1rem;
+}
+
+
+.product-card {
+  background: #f3def0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 220px;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgb(0 0 0 / 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  box-shadow: 0 6px 15px rgb(0 0 0 / 0.15);
+}
+
+.product-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.product-card img {
+  max-width: 150px;
+  max-height: 150px;
+  object-fit: contain;
+  margin-bottom: 0.75rem;
+  border-radius: 6px;
+}
+
+.no-image {
+  width: 150px;
+  height: 150px;
+  background: #f0f0f0;
+  color: #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-style: italic;
+  margin-bottom: 0.75rem;
+  border-radius: 6px;
+}
+
+.product-card p {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0.3rem 0;
+}
+
+.product-card form {
+  margin-top: auto; /* para que el botón quede abajo */
+}
+
+.product-card button {
+  background-color: #e88dc0;
+  color: white;
+  border: none;
+  padding: 0.5rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.product-card button:hover {
+  background-color: #ee2888;
+}
+
+.product-card a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: #b8215b;
+  text-decoration: none;
+}
+
+.product-card a:hover {
+  text-decoration: underline;
+}
+
+/* Paginación */
+.pagination {
+  text-align: center;
+  margin: 2rem 0;
+  font-weight: 600;
+  color: #555;
+}
+
+.pagination a {
+  margin: 0 1rem;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.pagination a:hover {
+  text-decoration: underline;
+}
+
+
+/* productosDerail
+--------------------------------- */
+
+h1.text-center {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.card {
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.card-img-top {
+  max-height: 300px;
+  object-fit: contain;
+  padding: 1rem;
+  background-color: #efe7eb;
+}
+
+.card-body {
+  padding: 1.5rem;
+  background-color: #fff;
+}
+
+.card-text {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+input[type="number"] {
+  max-width: 80px;
+  text-align: center;
+}
+
+.btn-success {
+  padding: 0.5rem 1.25rem;
+}
+
+.btn-secondary {
+  padding: 0.5rem 1.25rem;
+  font-weight: bold;
+  background-color: #6c757d;
+  border: none;
+}
+
+.alert {
+  font-size: 0.95rem;
+}
+
+.bg-light {
+  background-color: #f8f9fa !important;
+}
+
+.text-muted {
+  color: #d89fc1 !important;
+}

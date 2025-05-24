@@ -1,0 +1,47 @@
+
+<h1 class="my-4">🛒 Carrito de Compras</h1>
+
+{{#if cart}}
+  {{#if cart.products.length}}
+    <ul class="list-group mb-4">
+      {{#each cart.products}}
+        <li class="list-group-item">
+          <h5>{{this.product.title}}</h5>
+          <p>
+            Cantidad: <strong>{{this.quantity}}</strong><br />
+            Precio unitario: {{formatCurrency this.product.price}}<br />
+            Subtotal: {{multiply this.quantity this.product.price}}
+          </p>
+
+          <div class="d-flex gap-2">
+            <form action="/api/carts/{{../cart._id}}/products/{{this.product._id}}?_method=PUT" method="POST">
+              <input type="hidden" name="action" value="increment" />
+              <button class="btn btn-success btn-sm" type="submit">➕</button>
+            </form>
+
+            <form action="/api/carts/{{../cart._id}}/products/{{this.product._id}}?_method=PUT" method="POST">
+              <input type="hidden" name="action" value="decrement" />
+              <button class="btn btn-warning btn-sm" type="submit">➖</button>
+            </form>
+
+            <form action="/api/carts/{{../cart._id}}/products/{{this.product._id}}?_method=DELETE" method="POST">
+              <button class="btn btn-danger btn-sm" type="submit">🗑️ Eliminar</button>
+            </form>
+          </div>
+        </li>
+      {{/each}}
+    </ul>
+
+    <h4>Total: {{formatCurrency total}}</h4>
+
+    <form action="/api/carts/{{cart._id}}?_method=DELETE" method="POST">
+      <button class="btn btn-outline-danger" type="submit">🧹 Vaciar Carrito</button>
+    </form>
+  {{else}}
+    <div class="alert alert-info">🛍️ El carrito está vacío.</div>
+  {{/if}}
+{{else}}
+  <div class="alert alert-warning">🔒 No tienes un carrito activo.</div>
+{{/if}}
+
+<a href="/products" class="btn btn-secondary mt-3">⬅ Volver a productos</a>

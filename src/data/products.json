@@ -1,0 +1,116 @@
+[
+  {
+  "id": 1,
+  "title": "Torta de avellana",
+  "description": "Una deliciosa torta de avellana con una deliciosa crema de avellana",
+  "code": 1234,
+  "price": 150000,
+  "stock": 6,
+  "category": "Tortas",
+  "status": true,
+  "thumbnail": "/img/choco.png",
+  "tags": ["pastelería", "avellana", "postre", "dulce", "chocolate"]
+},
+  {
+    "id": 2,
+    "title": "Cheesecake de frutos rojos",
+    "description": "Un delicioso cheesecake de frutos rojos con una deliciosa crema de frutos rojos",
+    "code": 5678,
+    "price": 100000,
+    "stock": 6,
+    "status": true,
+    "thumbnail": "/img/cheescake.jpg",
+    "tags": ["pastelería", "frutos rojos", "postre", "dulce", "chocolate"]
+  },
+ 
+   {
+  "id": 3,
+  "title": "Anchetas para toda ocasión",
+  "description": "Sorprende a tus familiares, amigos o pareja con estas hermosas anchetas",
+  "code": 9012,
+  "price": 150000,
+  "stock": 4,
+  "status": true,
+  "thumbnail": "/img/ancheta.jpg",
+  "tags": ["dulces", "flores", "chocolate", "peluches", "frutas"]
+},
+
+  {
+    "id": 4,
+    "title": "Desayunos sorpresas",
+    "description": "Desayunos sorpresas para toda la familia, amigos o parejas",
+    "code": 3456,
+    "price": 170000,
+    "stock": 2,
+    "status": true,
+    "thumbnail": "/img/desayunos.jpg",
+    "tags": ["sandwich", "jugos naturales", "ensalada de frutas", "chocolate"]
+  },
+  {
+    "id": 5,
+    "title": "Torta personalizadas",
+    "description": "Personaliza tu torta con tus colores favoritos, puedes elegir de nuestros colores de pastelería",
+    "code": 7890,
+    "price": 200000,
+    "stock": 6,
+    "status": true,
+    "thumbnail": "/img/anchetas1.jpg",
+    "tags": ["pastelería", "torta personalizada", "chocolate"]
+  },
+  {
+    "id": 6,
+    "title": "Postre de tiramizu",
+    "description": "Un postre de tiramizu con una deliciosa crema de tiramizu",
+    "code": 1234,
+    "price": 180000,
+    "stock": 8,
+    "status": true,
+    "thumbnail": "/img/postre.jpg",
+    "tags": ["postre", "tiramizu", "crema", "dulce"]
+  },
+  {
+    "id": 7,
+    "title": "Tortas personalizadas",
+    "description": "Tortas personalizadas con tus tematica preverida, puedes elegir de nuestros colores de pastelería",
+    "code": 5678,
+    "price": 190000,
+    "stock": 2,
+    "status": true,
+    "thumbnail": "/img/torta.jpg",
+    "tags": ["pastelería", "torta personalizada", "vainilla"]
+  },
+  {
+    "id": 8,
+    "title": "Desayuno especiales",
+    "description": "Disfruta de nuestros deliciosos desayunos sorpresas",
+    "code": 9012,
+    "price": 250000,
+    "stock": 3,
+    "status": true,
+    "thumbnail": "/img/desaayuno1.jpg",
+    "tags": [ "desayuno especial", "frutas"]
+  },
+  {
+    "id": 9,
+    "title": "Torta de arequipe con relleno de fruto rojo",
+    "description": "Una deliciosa torta de arequipe con una deliciosa crema de arequipe",
+    "code": 3456,
+    "price": 4,
+    "stock": 0,
+    "status": false,
+    "thumbnail": "",
+    "tags": ["torta de arequipe", "arequipe", "crema"]
+  },
+  {
+    "id": 10,
+    "title": "Torta de vainilla con relleno de fruto amarillos",
+    "description": "Una deliciosa torta de vainilla ",
+    "code": 7890,
+    "price": 4,
+    "stock": 0,
+    "status": false,
+    "thumbnail": "" ,
+    "tags": ["torta de vainilla", "vainilla"]
+
+  }
+]

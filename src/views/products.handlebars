@@ -1,0 +1,91 @@
+
+<h2>Lista de productos disponibles</h2>
+
+<div class="products-list" id="productContainer">
+  {{#each products}}
+    <div class="product-card">
+      <h3>{{title}}</h3>
+      {{#if thumbnail}}
+        <img src="{{thumbnail}}" alt="{{title}}" width="150" />
+      {{else}}
+        <div class="no-image">Sin imagen</div>
+      {{/if}}
+      <p>{{description}}</p>
+      <p>Precio: {{price}} COP</p>
+      <form action="/api/carts/{{../cartId}}/products/{{_id}}" method="POST">
+        <button type="submit">Agregar al carrito</button>
+      </form>
+      <a href="/products/{{_id}}">Ver detalles</a>
+    </div>
+  {{/each}}
+</div>
+
+<div class="pagination">
+  {{#if hasPrevPage}}
+    <a href="{{prevLink}}">Anterior</a>
+  {{/if}}
+  <span>Página {{page}} de {{totalPages}}</span>
+  {{#if hasNextPage}}
+    <a href="{{nextLink}}">Siguiente</a>
+  {{/if}}
+</div>
+
+<script src="/socket.io/socket.io.js" defer></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const socket = io();
+    const cartId = '{{cartId}}';
+
+    const formatCurrency = (value) => {
+      return new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP' }).format(value);
+    };
+
+    const addProduct = (productData) => {
+      socket.emit('newProduct', productData);
+    };
+
+    socket.on('productAdded', (newProduct) => {
+      const productContainer = document.getElementById('productContainer');
+      if (!productContainer || !cartId) return;
+
+      const col = document.createElement('div');
+      col.classList.add('col');
+
+      col.innerHTML = `
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">${newProduct.title}</h5>
+            ${newProduct.thumbnail ? `<img src="${newProduct.thumbnail}" class="img-fluid mb-2" alt="${newProduct.title}" />` : `<div class="alert alert-secondary">Sin imagen</div>`}
+            <p class="card-text">${newProduct.description}</p>
+            <p><strong>Precio:</strong> ${formatCurrency(newProduct.price)}</p>
+            <form action="/api/carts/${cartId}/products/${newProduct._id}" method="POST">
+              <button type="submit" class="btn btn-primary btn-sm">Agregar al carrito</button>
+            </form>
+            <a href="/products/${newProduct._id}" class="btn btn-link mt-2">Ver detalles</a>
+          </div>
+        </div>
+      `;
+
+      productContainer.appendChild(col);
+    });
+
+    const addProductForm = document.getElementById('addProductForm');
+    addProductForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const title = document.getElementById('productTitle').value.trim();
+      const price = parseFloat(document.getElementById('productPrice').value);
+      const description = document.getElementById('productDescription').value.trim();
+      const thumbnail = document.getElementById('productThumbnail').value.trim();
+
+      if (!title || !description || isNaN(price) || price <= 0) {
+        alert('❗ Por favor completa correctamente todos los campos requeridos.');
+        return;
+      }
+
+      const newProduct = { title, price, description, thumbnail };
+      addProduct(newProduct);
+      this.reset();
+    });
+  });
+</script>
